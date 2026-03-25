@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <title>LUMÉA | Cart</title>
+  <meta name="description" content="Your LUMÉA cart." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="container">
+    <header class="page-header">
+      <h1>Your Cart</h1>
+      <p>Review your items before checkout.</p>
+    </header>
+
+    <section id="cartStatus" class="status" aria-live="polite"></section>
+    <section id="cartList" class="cart"></section>
+
+    <div class="cart-total">
+      <div>
+        <strong>Total:</strong> <span id="totalPrice">0 RSD</span>
+      </div>
+      <a class="btn btn--primary" href="checkout.html">Go to checkout</a>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <title>LUMÉA | Product</title>
+  <meta name="description" content="LUMÉA product details." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="container">
+    <section id="productStatus" class="status" aria-live="polite"></section>
+
+    <section id="productWrap" class="product" hidden>
+      <div class="product__media">
+        <img id="productImg" alt="" />
+      </div>
+
+      <div class="product__info">
+        <div class="product__badges" id="productBadges"></div>
+        <h1 id="productName"></h1>
+        <p class="product__meta" id="productMeta"></p>
+
+        <div class="product__price" id="productPrice"></div>
+
+        <p id="productDesc" class="product__desc"></p>
+
+        <h3>Key ingredients</h3>
+        <ul id="productIngredients" class="list"></ul>
+
+        <button id="addBtn" class="btn btn--primary" type="button">Add to cart</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/product.js"></script>
+</body>
+</html>
