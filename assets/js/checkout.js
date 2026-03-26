@@ -20,7 +20,6 @@ const err = {
   terms: document.getElementById("errTerms")
 };
 
-// Regex
 const rxName = /^[A-Za-zÀ-žŠĐŽČĆšđžčć]{2,}(?:\s+[A-Za-zÀ-žŠĐŽČĆšđžčć]{2,})+$/;
 const rxEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const rxPhone = /^(\+381|0)\s?6\d(\s?\d{3}\s?\d{3,4})$/;   // +381 64 123 4567 ili 064 123 4567
@@ -95,7 +94,7 @@ function validate() {
   return ok;
 }
 
-// Live validation (raznovrsnost koda)
+
 [fullName, email, phone, address, zip].forEach(inp => {
   inp.addEventListener("blur", validate);
 });
@@ -108,9 +107,9 @@ form.addEventListener("submit", (e) => {
 
   if (!validate()) return;
 
-  // Obrada porudžbine (demo)
+
   try {
-    // Sačuvaj “poslednju porudžbinu” (bonus localStorage)
+
     const order = {
       fullName: fullName.value.trim(),
       email: email.value.trim(),
@@ -123,12 +122,10 @@ form.addEventListener("submit", (e) => {
     };
     localStorage.setItem("lumea_last_order", JSON.stringify(order));
 
-    // Očisti korpu
     localStorage.removeItem("lumea_cart");
 
     setStatus("Order placed successfully! Redirecting…", "info");
 
-    // redirect
     setTimeout(() => {
       window.location.href = "index.html";
     }, 900);

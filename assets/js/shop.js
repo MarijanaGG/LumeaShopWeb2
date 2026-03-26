@@ -23,9 +23,6 @@ let filteredProducts = [];
 let currentPage = 1;
 const pageSize = 6;
 
-/* ======================
-   LocalStorage helpers
-====================== */
 function safeParse(key, fallback) {
   try {
     const raw = localStorage.getItem(key);
@@ -65,9 +62,6 @@ function updateWishBadge() {
   badge.textContent = String(getWishlist().length);
 }
 
-/* ======================
-   Utils
-====================== */
 function formatRSD(value) {
   return new Intl.NumberFormat("sr-RS").format(value) + " RSD";
 }
@@ -93,9 +87,6 @@ function escapeHTML(str) {
   }[m]));
 }
 
-/* ======================
-   Render
-====================== */
 function renderProducts(list) {
   if (!grid) return;
 
@@ -165,9 +156,6 @@ function renderProducts(list) {
   if (nextBtn) nextBtn.disabled = currentPage === totalPages;
 }
 
-/* ======================
-   Filter + Sort
-====================== */
 function applySearchAndSort() {
   const q = (searchInput?.value || "").trim().toLowerCase();
   const cat = categorySelect?.value || "all";
@@ -208,9 +196,7 @@ function applySearchAndSort() {
   renderProducts(filteredProducts);
 }
 
-/* ======================
-   Data load
-====================== */
+
 async function loadProducts() {
   try {
     showStatus("Loading products...", "info");
@@ -227,16 +213,14 @@ async function loadProducts() {
     updateCartBadge();
     updateWishBadge();
 
-    applySearchAndSort(); // renders first page
+    applySearchAndSort(); 
   } catch (err) {
     console.error(err);
     showStatus("Failed to load products. Please refresh or try again later.", "error");
   }
 }
 
-/* ======================
-   Events
-====================== */
+
 if (searchInput) searchInput.addEventListener("input", applySearchAndSort);
 if (sortSelect) sortSelect.addEventListener("change", applySearchAndSort);
 
@@ -272,7 +256,6 @@ if (nextBtn) {
   });
 }
 
-// Add to cart + Wishlist (event delegation)
 if (grid) {
   grid.addEventListener("click", (e) => {
     // ADD TO CART
@@ -295,7 +278,7 @@ if (grid) {
       return;
     }
 
-    // WISHLIST TOGGLE (♡ ↔ ♥)
+    //wishlist dugme
     const wishBtn = e.target.closest("[data-wish]");
     if (wishBtn) {
       const id = Number(wishBtn.dataset.wish);

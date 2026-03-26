@@ -73,7 +73,6 @@ function renderProduct(p){
     setStatus(`Added to cart: ${p.name}`, "info");
   };
 
-  // SEO basic per product
   document.title = `LUMÉA | ${p.name}`;
 }
 

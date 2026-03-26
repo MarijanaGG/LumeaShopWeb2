@@ -106,3 +106,4 @@ listEl.addEventListener("click", (e) => {
     setStatus("Failed to load cart items. Try refresh.", "error");
   }
 })();
+
