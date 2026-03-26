@@ -1840,9 +1840,6 @@ body {
   }
 }
 
-.site-footer {
-  margin-top: 0;
-}
 html, body {
   height: 100%;
 }
@@ -1854,4 +1851,14 @@ body {
 
 main {
   flex: 1;
+}
+
+.doc-page {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.site-footer {
+  margin-top: auto;
 }
