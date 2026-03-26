@@ -23,9 +23,7 @@ let filteredProducts = [];
 let currentPage = 1;
 const pageSize = 6;
 
-/* ======================
-   LocalStorage helpers
-====================== */
+
 function safeParse(key, fallback) {
   try {
     const raw = localStorage.getItem(key);
@@ -65,15 +63,13 @@ function updateWishBadge() {
   badge.textContent = String(getWishlist().length);
 }
 
-/* ======================
-   Utils
-====================== */
+
 function formatRSD(value) {
   return new Intl.NumberFormat("sr-RS").format(value) + " RSD";
 }
 
 function finalPrice(p) {
-  if (p.discount?.active) return Math.round(p.price * (1 - p.discount.percent / 100));
+  if (p.discount?.active) return Math.round(p.price * (1 - p.discount.percent * 100));
   return p.price;
 }
 
@@ -93,9 +89,7 @@ function escapeHTML(str) {
   }[m]));
 }
 
-/* ======================
-   Render
-====================== */
+
 function renderProducts(list) {
   if (!grid) return;
 
@@ -165,9 +159,7 @@ function renderProducts(list) {
   if (nextBtn) nextBtn.disabled = currentPage === totalPages;
 }
 
-/* ======================
-   Filter + Sort
-====================== */
+
 function applySearchAndSort() {
   const q = (searchInput?.value || "").trim().toLowerCase();
   const cat = categorySelect?.value || "all";
@@ -208,9 +200,7 @@ function applySearchAndSort() {
   renderProducts(filteredProducts);
 }
 
-/* ======================
-   Data load
-====================== */
+
 async function loadProducts() {
   try {
     showStatus("Loading products...", "info");
@@ -234,9 +224,7 @@ async function loadProducts() {
   }
 }
 
-/* ======================
-   Events
-====================== */
+
 if (searchInput) searchInput.addEventListener("input", applySearchAndSort);
 if (sortSelect) sortSelect.addEventListener("change", applySearchAndSort);
 
