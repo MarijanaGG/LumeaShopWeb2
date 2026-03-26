@@ -1839,3 +1839,19 @@ body {
     font-size: 30px;
   }
 }
+
+.site-footer {
+  margin-top: 0;
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
